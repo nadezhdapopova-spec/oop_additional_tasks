@@ -1,0 +1,19 @@
+[project]
+name = "oop-additional-tasks"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Nadezhda_Popova",email = "nadezhdapopova13@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flake8 (>=7.3.0,<8.0.0)",
+    "mypy (>=1.16.1,<2.0.0)",
+    "isort (>=6.0.1,<7.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
