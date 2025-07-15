@@ -9,9 +9,32 @@
 если он старше 18 лет, и False в противном случае
 """
 
+from datetime import datetime, timedelta
+
 
 class Person:
-    pass
+    name: str
+    age: int
+
+
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+
+    def display(self):
+        print(f"{self._name} is {self._age} years old")
+
+
+    @classmethod
+    def from_birth_year(cls, name, birth_year):
+        age = datetime.now().year - birth_year
+        return cls(name, age)
+
+
+    @staticmethod
+    def is_adult(age):
+        return age > 18
 
 
 # код для проверки 
