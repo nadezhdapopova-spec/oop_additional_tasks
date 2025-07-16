@@ -13,6 +13,7 @@ class MyList2:
 
     def __init__(self, data: list):
         self.data = data
+        self.index = 0
 
     def __iter__(self):
         self.index = 0

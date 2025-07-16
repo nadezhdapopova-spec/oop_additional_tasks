@@ -26,3 +26,11 @@ def test_task_update(capsys, task):
 
     task.created_at = datetime.now().date().strftime("%d.%m.%Y")
     assert task.created_at == datetime.now().date().strftime("%d.%m.%Y")
+
+
+def test_task_str(task):
+    assert str(task) == "Cдать домашку, Статус выполнения: Ожидает старта, Дата создания: 20.06.2025"
+
+
+def test_task_add(task_with_runtime1, task_with_runtime2):
+    assert task_with_runtime1 + task_with_runtime2 == 90
