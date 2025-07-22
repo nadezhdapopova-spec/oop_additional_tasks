@@ -11,9 +11,17 @@
 
 
 class Student:
+    name: str
+    course: int
+    grades: list[int] | list[None]
 
-    def __init__(...):
-        ...
+    def __init__(self, name: str, course: int, grades: list[int] | list[None]):
+        self.name = name
+        self.course = course
+        self.grades = grades
+
+    def avg_rate(self):
+        print(round(sum(self.grades) / len(self.grades), 2) if len(self.grades) > 0 else 0)
 
 
 # код для проверки

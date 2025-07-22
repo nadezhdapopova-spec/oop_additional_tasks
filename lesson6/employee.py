@@ -13,9 +13,38 @@
 Вызванные исключения должны пояснять в чем именно произошла ошибка.
 """
 
+class Person:
+    name: str
+    age: int
+    salary: int | float
+
+    def __init__(self, name: str, age: int, salary: int | float) -> None:
+        self.name = name
+        self.age = age
+        self.salary = salary
+
 
 class Employee:
-    pass
+    name: str
+    age: int
+    salary: int | float
+
+    def __init__(self, name: str, age: int, salary: int | float) -> None:
+        self.name = name
+        self.age = self.validate_age(age)
+        self.salary = self.validate_salary(salary)
+
+    @staticmethod
+    def validate_age(age):
+        if 18 <= age <= 127:
+            return age
+        raise ValueError("Возраст должен быть не меньше 18 и не больше 127")
+
+    @staticmethod
+    def validate_salary(salary):
+        if salary >= 16242:
+            return salary
+        raise ValueError("Оплата труда не может быть меньше 16242")
 
 
 # код для проверки
