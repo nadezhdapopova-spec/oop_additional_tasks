@@ -18,7 +18,9 @@ class Task:
         return f"{self.name}, Статус выполнения: {self.status}, Дата создания: {self.created_at}"
 
     def __add__(self, other):
-        return self.run_time + other.run_time
+        if type(other) is Task:
+            return self.run_time + other.run_time
+        raise TypeError
 
     @classmethod
     def new_task(cls, name, description, status="Ожидает старта", created_at=None):
@@ -56,3 +58,4 @@ if __name__ == "__main__":
     print(task2.created_at)
 
     print(task1 + task2)
+    # print(task1 + 3)
