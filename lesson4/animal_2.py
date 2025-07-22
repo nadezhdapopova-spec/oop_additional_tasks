@@ -4,29 +4,29 @@
 
 
 class Animal:
+    name: str
 
-    def __init__(self, name):
-        pass
+    def __init__(self, name: str) -> None:
+        self.name = name
 
-    def walk(self):
+    def speak(self):
         pass
 
 
 class Dog(Animal):
 
-    def bark(self):
+    def speak(self):
         print('Bark!')
 
 
 class Cat(Animal):
 
-    def meow(self):
+    def speak(self):
         print('Meow!')
 
 
 
 animals = [Dog('Dog1'), Dog('Dog2'), Cat('Cat1'), Dog('Dog3')]
 
-for animal in animals:
-    # Должно выводиться Bark или Meow в зависимости от того какой класс
-    pass
+for animal in animals:  # Должно выводиться Bark или Meow в зависимости от того какой класс
+    animal.speak()

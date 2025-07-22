@@ -18,7 +18,41 @@
 
 
 class Person:
-    pass
+    name: str
+    age: int
+
+    def __init__(self, name: str, age: int) -> None:
+        self.name = name
+        self.age = age
+
+    def get_name(self) -> str:
+        return self.name
+
+    def get_age(self) -> int:
+        return self.age
+
+
+class Employee2(Person):
+    salary: int | float
+
+    def __init__(self, name: str, age: int, salary: int | float) -> None:
+        super().__init__(name, age)
+
+        self.salary = salary
+
+    def get_salary(self) -> int | float:
+        return self.salary
+
+class Manager2(Employee2):
+    bonus: int | float
+
+    def __init__(self, name: str, age: int, salary: int | float, bonus: int | float) -> None:
+        super().__init__(name, age, salary)
+
+        self.bonus = bonus
+
+    def get_bonus(self):
+        return self.bonus
 
 
 # код для проверки 

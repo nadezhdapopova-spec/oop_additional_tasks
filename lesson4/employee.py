@@ -12,7 +12,28 @@
 
 
 class Employee:
-    pass
+    name: str
+    salary: int | float
+
+    def __init__(self, name: str, salary: int | float) -> None:
+        self.name = name
+        self.salary = salary
+
+    def get_salary(self) -> int | float:
+        return self.salary
+
+
+class Manager(Employee):
+    bonus: int | float
+
+    def __init__(self, name: str, salary: int | float, bonus: int | float) -> None:
+        super().__init__(name, salary)
+        self.bonus = bonus
+
+    def get_salary(self) -> int | float:
+        if isinstance(self.salary, int | float) and isinstance(self.bonus, int | float):
+            return self.salary + self.bonus
+        raise TypeError
 
 
 # код для проверки 

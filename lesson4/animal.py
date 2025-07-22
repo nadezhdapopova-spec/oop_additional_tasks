@@ -14,11 +14,29 @@
 """
 
 
-class Aminal:
-    pass
+class Animal:
+    name: str
+
+    def __init__(self, name: str) -> None:
+        self.name = name
+
+    def speak(self) -> None:
+        print("?")
 
 
-# код для проверки 
+class Dog(Animal):
+    def speak(self) -> None:
+        print("Woof!")
+
+
+class Cat(Animal):
+
+    def speak(self) -> None:
+        print("Meow!")
+
+
+
+# код для проверки
 animal = Animal("Animal")
 animal.speak()  # ?
 

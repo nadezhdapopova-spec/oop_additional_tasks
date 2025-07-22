@@ -24,6 +24,16 @@ def test_user_task_list_setter(first_user, task):
     assert len(first_user.task_in_list) == 3
 
 
+def test_user_task_list_setter_error(first_user, task):
+    with pytest.raises(TypeError):
+        first_user.task_list = 1
+
+
+def test_user_task_list_setter_periodic_task(first_user, task_periodic_1):
+    first_user.task_list = task_periodic_1
+    assert first_user.task_in_list[-1].description == "Купить книгу по кулинарии"
+
+
 def test_user_str(first_user):
     assert str(first_user) == "Userov User, Email: user@mail.ru, Всего задач в списке: 2"
 
