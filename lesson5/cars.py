@@ -8,16 +8,38 @@
 Так как данный класс используется в большом каталоге, его необходимо оптимизировать и создать класс, который использует коллекции slots
 
 Сравните скорость работы двух классов: с коллекциями slots и без них. Для этого каждому классу напишите метод get_set_del, 
-в котором происходи получение, присваивание и удаление значения.
+в котором происходит получение, присваивание и удаление значения.
 """
 
 
 class Car:
-    pass
+    brand: str
+    model: str
+    year: int
+
+    def __init__(self, brand: str, model: str, year: int) -> None:
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def get_set_del(self) -> None:
+        self.year += 1
+        del self.brand
+        self.brand = "Toyota"
 
 
 class CarSlots:
-    pass
+    __slots__ = ("brand", "model", "year")
+
+    def __init__(self, brand: str, model: str, year: int) -> None:
+        self.brand = brand
+        self.model = model
+        self.year = year
+
+    def get_set_del(self) -> None:
+        self.year += 1
+        del self.brand
+        self.brand = "Toyota"
 
 
 car = Car('Toyota', 'Corolla', 2022)
@@ -28,3 +50,5 @@ import timeit
 t1 = timeit.timeit(car.get_set_del)
 t2 = timeit.timeit(car_slots.get_set_del)
 print((t1-t2)/t1*100)
+print(t1)
+print(t2)

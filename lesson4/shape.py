@@ -14,7 +14,6 @@
 - __init__(self, name, base, height): конструктор, принимающий имя треугольника, основание и высоту;
 - area(self): метод, который вычисляет площадь треугольника.
 """
-from typing import Any
 
 
 class Shape:
