@@ -10,7 +10,11 @@
 
 
 class Student:
-    pass
+    __slots__ = ("name", "age", "grades")
+
+
+class Course:
+    __slots__ = ("name", "students")
 
 
 # код для проверки 
@@ -27,3 +31,15 @@ student2.grades = [95, 85, 90]
 course = Course()
 course.name = "Math"
 course.students = [student1, student2]
+
+print(student1.name)
+print(student1.age)
+print(student1.grades)
+
+print(student2.name)
+print(student2.age)
+print(student2.grades)
+
+print(course.name)
+print(course.students[0].name)
+print(course.students[1].grades)
